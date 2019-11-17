@@ -14,7 +14,7 @@ pipeline {
     stage('Shared Library') {
       steps {
         script {
-          kaniko-build()
+          kanikoBuild()
         }
       }
     }
