@@ -1,7 +1,7 @@
 library identifier: 'custom-lib@master', retriever: modernSCM(
   [$class: 'GitSCMSource',
    remote: 'git@github.com/lcorbo-cb:gitops-sharedliberary-example.git',
-   credentialsId: 'my-private-key'])
+   credentialsId: 'lcorbo-cb-key'])
 
 pipeline {
   agent {
@@ -11,9 +11,15 @@ pipeline {
     }
   }
   stages {
+    stage('Shared Library') {
+      steps {
+        script {
+          kaniko-build()
+        }
+      }
+    }
     stage('Build with Kaniko') {
       steps {
-        kaniko-build()
         sh '/kaniko/executor -f `pwd`/Dockerfile -c `pwd` --skip-tls-verify --cache=true --destination=lcorbocb/my-second-repo'
       }
     }
