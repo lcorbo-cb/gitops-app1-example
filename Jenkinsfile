@@ -9,7 +9,7 @@ pipeline {
     stage('Build with Kaniko') {
       steps {
         script {
-          kanikoBuild('lcorbocb/my-third-repo')
+          kanikoBuild('lcorbocb/my-fourth-repo')
         }
       }
     }
