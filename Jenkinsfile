@@ -1,6 +1,6 @@
 library identifier: 'custom-lib@master', retriever: modernSCM(
   [$class: 'GitSCMSource',
-   remote: 'git@github.com/lcorbo-cb:gitops-sharedliberary-example.git',
+   remote: 'https://github.com/lcorbo-cb/gitops-sharedliberary-example.git',
    credentialsId: 'lcorbo-cb-key'])
 
 pipeline {
