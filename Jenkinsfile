@@ -9,8 +9,7 @@ pipeline {
     stage('Lint Dockerfile') {
       steps {
         script {
-          String fileContents = new File('Dockerfile').text
-          containerdLint(fileContents)
+          containerdLint()
         }
       }
     }
