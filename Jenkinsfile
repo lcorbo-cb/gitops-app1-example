@@ -4,23 +4,13 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
    credentialsId: 'lcorbo-cb-key'])
 
 pipeline {
-  agent {
-    kubernetes {
-      defaultContainer 'kaniko'
-      yamlFile 'KubernetesPod.yaml'
-    }
-  }
+  agent none
   stages {
-    stage('Shared Library') {
+    stage('Build with Kaniko') {
       steps {
         script {
           kanikoBuild()
         }
-      }
-    }
-    stage('Build with Kaniko') {
-      steps {
-        sh '/kaniko/executor -f `pwd`/Dockerfile -c `pwd` --skip-tls-verify --cache=true --destination=lcorbocb/my-second-repo'
       }
     }
   }
