@@ -1,4 +1,2 @@
-FROM busybox
-CMD echo "Hello world! This is my first Docker image."
-CMD echo "Hello world! This is my first Docker image again."
-CMD echo "Hello world! This is my first Docker image once again."
+FROM hadolint/hadolint:v1.17.2-20-ge2f77c5
+CMD ["/bin/hadolint"] 
