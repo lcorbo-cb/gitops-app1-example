@@ -20,5 +20,12 @@ pipeline {
         }
       }
     }
+    stage('Unit Test with dgoss') {
+      steps {
+        script {
+          containerdUnitTest('lcorbocb/my-fourth-repo')
+        }
+      }
+    }
   }
 }
