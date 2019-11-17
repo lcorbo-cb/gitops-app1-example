@@ -6,13 +6,13 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
 pipeline {
   agent none
   stages {
-    stage('Lint Dockerfile') {
+/*    stage('Lint Dockerfile') {
       steps {
         script {
           containerdLint()
         }
       }
-    }
+    }*/
     stage('Build with Kaniko') {
       steps {
         script {
