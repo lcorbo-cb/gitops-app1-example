@@ -23,7 +23,7 @@ pipeline {
     stage('Unit Test with dgoss') {
       steps {
         script {
-          containerdUnitTest()
+          containerdUnitTest('hadolint')
         }
       }
     }
