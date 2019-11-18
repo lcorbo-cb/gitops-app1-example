@@ -16,11 +16,11 @@ pipeline {
     stage('Build with Kaniko') {
       steps {
         script {
-          kanikoBuild('lcorbocb/my-fourth-repo')
+          kanikoBuild('lcorbocb/hadolint:demo')
         }
       }
     }
-    stage('Unit Test with dgoss') {
+    stage('Unit Tests') {
       steps {
         script {
           containerdUnitTest('hadolint')
