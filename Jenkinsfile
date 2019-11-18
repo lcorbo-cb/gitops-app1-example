@@ -27,7 +27,7 @@ pipeline {
         }
       }
     }
-  }
+  }/*
   post {
     failure {
       // notify users when the Pipeline fails
@@ -41,5 +41,5 @@ pipeline {
           subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
           body: "${env.BUILD_URL} Completed"
     }
-  }
+  }*/
 }
