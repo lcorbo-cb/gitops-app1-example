@@ -27,19 +27,11 @@ pipeline {
         }
       }
     }
-  }/*
+  }
   post {
-    failure {
-      // notify users when the Pipeline fails
-      mail to: 'lcorbo@cloudbees.com',
-          subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-          body: "Something is wrong with ${env.BUILD_URL}"
-    }
     success {
       // notify users when the Pipeline Succeeds
-      mail to: 'lcorbo@cloudbees.com',
-          subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
-          body: "${env.BUILD_URL} Completed"
+      publishEvent jsonEvent('{"eventName":"hellWorld"}')
     }
-  }*/
+  }
 }
