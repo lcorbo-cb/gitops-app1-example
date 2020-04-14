@@ -31,7 +31,7 @@ pipeline {
   post {
     success {
       // notify users when the Pipeline Succeeds
-      publishEvent jsonEvent('{"eventName":"hellWorld"}')
+      publishEvent jsonEvent('{"eventName":"helloWorld"}')
     }
   }
 }
