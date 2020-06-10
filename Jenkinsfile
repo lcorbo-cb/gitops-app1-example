@@ -4,8 +4,10 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
    credentialsId: 'lcorbo-cb-key'])
 
 pipeline {
-  options { disableConcurrentBuilds() }
   agent none
+  options { 
+    disableConcurrentBuilds() 
+  }
   stages {
     stage('Lint Dockerfile') {
       steps {
