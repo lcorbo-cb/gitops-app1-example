@@ -30,7 +30,23 @@ pipeline {
         }
       }
     }
-    stage('Unit Tests') {
+    stage('testtest') {
+      agent {
+        kubernetes {
+          yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: hadolint
+    image: lcorbocb/hadolint:demo
+    imagePullPolicy: Always
+    command:
+    - cat
+    tty: true
+    """
+        }
+      }
       steps {
         script {
           sh("printenv")
