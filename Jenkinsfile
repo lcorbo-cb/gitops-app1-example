@@ -3,6 +3,8 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
    remote: 'https://github.com/lcorbo-cb/gitops-sharedliberary-example.git',
    credentialsId: 'lcorbo-cb-key'])
 
+String TAG = "corbolj"
+
 pipeline {
   agent none
   options {
@@ -19,7 +21,7 @@ pipeline {
     stage('Build with Kaniko') {
       steps {
         script {
-          kanikoBuild('lcorbocb/hadolint:demo')
+          kanikoBuild('lcorbocb/hadolint:${TAG}')
         }
       }
     }
@@ -39,7 +41,7 @@ kind: Pod
 spec:
   containers:
   - name: hadolint
-    image: lcorbocb/hadolint:demo
+    image: lcorbocb/hadolint:${TAG}
     imagePullPolicy: Always
     command:
     - cat
@@ -49,7 +51,6 @@ spec:
       }
       steps {
         script {
-          // checkout scm
           container('hadolint') {
             sh "ls -l"
             sh "hadolint `pwd`/Dockerfile"
