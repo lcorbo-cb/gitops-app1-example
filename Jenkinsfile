@@ -21,7 +21,7 @@ pipeline {
     stage('Build with Kaniko') {
       steps {
         script {
-          kanikoBuild('lcorbocb/hadolint:${TAG}')
+          kanikoBuild("lcorbocb/hadolint:${TAG}")
         }
       }
     }
