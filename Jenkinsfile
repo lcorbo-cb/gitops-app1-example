@@ -5,8 +5,8 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
 
 pipeline {
   agent none
-  options { 
-    disableConcurrentBuilds() 
+  options {
+    disableConcurrentBuilds()
   }
   stages {
     stage('Lint Dockerfile') {
@@ -30,12 +30,13 @@ pipeline {
         }
       }
     }
+    stage('Unit Tests') {
+      steps {
+        script {
+          sh("printenv")
+          println "hold"
+        }
+      }
+    }
   }
-  //post {
-   // success {
-      // notify users when the Pipeline Succeeds
-      //publishEvent jsonEvent('{"eventName":"helloWorld"}'), verbose: true
-      //publishEvent event:jsonEvent('{"eventName":"helloWorld"}'), verbose: true
-   // }
-  //}
 }
