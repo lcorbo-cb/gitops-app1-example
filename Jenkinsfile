@@ -49,8 +49,13 @@ spec:
       }
       steps {
         script {
-          sh("printenv")
-          println "hold"
+          // checkout scm
+          container('hadolint') {
+            sh "ls -l"
+            sh "hadolint `pwd`/Dockerfile"
+          }
+          // sh("printenv")
+          // println "hold"
         }
       }
     }
