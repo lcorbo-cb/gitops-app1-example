@@ -55,6 +55,7 @@ spec:
             sh "ls -l"
             sh "hadolint `pwd`/Dockerfile"
           }
+          publishEvent jsonEvent("""{"eventName":"newbuild","buildTag":"${TAG}"}""")
           // sh("printenv")
           // println "hold"
         }
