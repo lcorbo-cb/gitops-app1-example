@@ -3,7 +3,7 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
    remote: 'https://github.com/lcorbo-cb/gitops-sharedliberary-example.git',
    credentialsId: 'lcorbo-cb-key'])
 
-String TAG = "v1.17.2.0"
+String TAG = "v1.17.2." + $BUILD_ID
 
 pipeline {
   agent none
