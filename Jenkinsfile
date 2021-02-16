@@ -3,7 +3,7 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
    remote: 'https://github.com/lcorbo-cb/gitops-sharedliberary-example.git',
    credentialsId: 'lcorbo-cb-key'])
 
-String TAG = "corbolj2"
+String TAG = "v1.17.2.0"
 
 pipeline {
   agent none
@@ -25,14 +25,7 @@ pipeline {
         }
       }
     }
-    stage('Unit Tests') {
-      steps {
-        script {
-          containerdUnitTest('hadolint')
-        }
-      }
-    }
-    stage('testtest') {
+    stage('Unit Test Image') {
       agent {
         kubernetes {
           yaml """
@@ -52,7 +45,7 @@ spec:
       steps {
         script {
           container('hadolint') {
-            sh "ls -l"
+            sh "printenv"
             sh "hadolint `pwd`/Dockerfile"
           }
           publishEvent jsonEvent("""{"eventName":"newbuild","buildTag":"${TAG}"}""")
