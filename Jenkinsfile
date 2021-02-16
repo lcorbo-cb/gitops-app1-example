@@ -11,7 +11,7 @@ pipeline {
     disableConcurrentBuilds()
   }
   triggers {
-    eventTrigger jmespathQuery("eventName=='webhook'")
+    eventTrigger jmespathQuery("event=='hello'")
   }
   stages {
     stage('Lint Dockerfile') {

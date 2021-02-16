@@ -1,6 +1,6 @@
 curl -X POST \
      --cacert ../sh_secrets_ps/certs/ca/ca.pem \
      -H "Content-Type: application/json" \
-     -H "x-hub-signature:4e75e597d118b9c57823f85143a49e63e1701a1f88134be7e0b7698e79eba562" \
+     -H "x-hub-signature:a9e49ad0fa18bfe6e8d548e739f30cb0ff7b4c3ac24753f8399551613d2f1237" \
      -d @hook.json \
-     https://cbci.cloudbees.demo/cjoc/webhooks/HzZDDvY/
+     https://cbci.cloudbees.demo/cjoc/webhooks/zNJv3nw/
