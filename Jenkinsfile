@@ -9,6 +9,7 @@ pipeline {
   agent none
   options {
     disableConcurrentBuilds()
+    timestamps()
   }
   triggers {
     eventTrigger jmespathQuery("event=='hello'")
