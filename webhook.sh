@@ -5,4 +5,4 @@ curl -X POST \
      -d @hook.json \
      --user admin:welcome \
     --write-out "%{http_code}" \
-     https://cbci.cloudbees.demo/cjoc/webhooks/zNJv3nw/
+     https://cbci.cloudbees.demo/cjoc/webhooks/g1JFWIW/	
